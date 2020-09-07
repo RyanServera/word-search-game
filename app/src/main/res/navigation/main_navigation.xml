@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/titleFragment">
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="com.example.wordsearch.screens.title.TitleFragment"
+        android:label="TitleFragment"
+        tools:layout="@layout/title_fragment">
+        <action
+            android:id="@+id/action_titleFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/endgameFragment"
+        android:name="com.example.wordsearch.screens.endgame.EndgameFragment"
+        android:label="EndgameFragment"
+        tools:layout="@layout/endgame_fragment" />
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.wordsearch.screens.game.GameFragment"
+        android:label="GameFragment"
+        tools:layout="@layout/game_fragment">
+        <action
+            android:id="@+id/action_gameFragment_to_endgameFragment"
+            app:destination="@id/endgameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.wordsearch.screens.info.InfoFragment"
+        android:label="InfoFragment"
+        tools:layout="@layout/info_fragment" />
+</navigation>
