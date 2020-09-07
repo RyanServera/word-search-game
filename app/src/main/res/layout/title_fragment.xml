@@ -33,6 +33,7 @@
             android:text="Start"
             android:layout_marginBottom="24dp"
             app:layout_constraintBottom_toTopOf="@+id/instruction_button"
+            android:onClick="@{() -> titleViewModel.startGame()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -42,6 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="64dp"
+            android:onClick="@{() -> titleViewModel.showHowToPlay()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

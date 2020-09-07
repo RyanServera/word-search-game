@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" >
 
+    <data>
+        <variable
+            name="endgameViewModel"
+            type="com.example.wordsearch.screens.endgame.EndgameViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,24 +18,38 @@
             android:id="@+id/final_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Final Score: "
+            android:text="@{String.valueOf(endgameViewModel.score)}"
+            tools:text="40"
             android:textColor="@android:color/white"
             android:textSize="24dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintBottom_toTopOf="@+id/play_again_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/textView"
+            android:id="@+id/play_again_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Play Again"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:onClick="@{() -> endgameViewModel.playAgain()}"
             app:layout_constraintTop_toBottomOf="@+id/final_score" />
+
+        <Button
+            android:id="@+id/exit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Exit"
+            android:onClick="@{() -> endgameViewModel.exitGame()}"
+            app:layout_constraintTop_toBottomOf="@+id/play_again_button"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

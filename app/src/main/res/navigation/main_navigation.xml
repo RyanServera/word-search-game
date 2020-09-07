@@ -20,7 +20,19 @@
         android:id="@+id/endgameFragment"
         android:name="com.example.wordsearch.screens.endgame.EndgameFragment"
         android:label="EndgameFragment"
-        tools:layout="@layout/endgame_fragment" />
+        tools:layout="@layout/endgame_fragment" >
+        <argument
+            android:name="finalScore"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_endgameFragment_to_titleFragment2"
+            app:destination="@id/titleFragment"
+            app:popUpTo="@id/titleFragment" />
+        <action
+            android:id="@+id/action_endgameFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
     <fragment
         android:id="@+id/gameFragment"
         android:name="com.example.wordsearch.screens.game.GameFragment"
@@ -28,11 +40,17 @@
         tools:layout="@layout/game_fragment">
         <action
             android:id="@+id/action_gameFragment_to_endgameFragment"
-            app:destination="@id/endgameFragment" />
+            app:destination="@id/endgameFragment"
+            app:popUpTo="@id/titleFragment" />
     </fragment>
     <fragment
         android:id="@+id/infoFragment"
         android:name="com.example.wordsearch.screens.info.InfoFragment"
         android:label="InfoFragment"
-        tools:layout="@layout/info_fragment" />
+        tools:layout="@layout/info_fragment" >
+        <action
+            android:id="@+id/action_infoFragment_to_titleFragment"
+            app:destination="@id/titleFragment"
+            app:popUpTo="@id/titleFragment" />
+    </fragment>
 </navigation>
